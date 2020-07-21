@@ -29,6 +29,7 @@ Neptune #76A6B4
 - [x] Add better docs.
 - [x] Redo desgin
 - [ ] Setup CI
+- [ ] Add redux
 
 ## TODO features
 
