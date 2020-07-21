@@ -34,3 +34,4 @@ Neptune #76A6B4
 
 - [ ] Click on indvidual groups to see score on different tasks
 - [ ] Progressive Web App
+- [ ] Sort on DATA, KOMTEK or ALL
