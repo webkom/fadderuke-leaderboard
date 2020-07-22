@@ -1,6 +1,14 @@
 # Backend with Golang and openfaas
 
-## Setup
+## Running locally
+
+Run a local server at http:localhost:8008
+
+```bash
+go run spreadsheet-api/server/main.go
+```
+
+## Running with OpenFaaS 
 
 Currently this is a private repo with the secrets available. This MUST be changed when the repo goes public.
 

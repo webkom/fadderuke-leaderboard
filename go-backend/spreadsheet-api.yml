@@ -4,8 +4,8 @@ provider:
   gateway: http://127.0.0.1:8080
 functions:
   spreadsheet-api:
-    lang: golang-http
-    handler: ./spreadsheet-api
+    lang: golang-middleware
+    handler: ./spreadsheet-api/handler/
     image: spreadsheet-api:latest
     secrets:
       - google-sheets-credentials
