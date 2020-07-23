@@ -25,7 +25,7 @@ Neptune #76A6B4
 - [ ] <s>Add traefik config for proxying backend</s>
 - [x] Setup go-function to handle CORS header to allow wildcard: "\*"
 - [x] Redo json formatting from backend
-- [ ] Add better error handling
+- [x] Add better error handling
 - [x] Add better docs.
 - [x] Redo desgin
 - [ ] Setup CI
@@ -34,5 +34,6 @@ Neptune #76A6B4
 ## TODO features
 
 - [ ] Click on indvidual groups to see score on different tasks
-- [ ] Progressive Web App
+- [ ] Progressive Web App (serviceworker)
 - [ ] Sort on DATA, KOMTEK or ALL
+- [ ] Add link to fadderuke-program
