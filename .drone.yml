@@ -5,16 +5,19 @@ name: default
 
 steps:
   - name: setup
-    image: node:10
+    image: node:14
     when:
       event: push
     commands:
       - yarn --frozen-lockfile --ignore-scripts
 
   - name: lint
-    image: node:10
+    image: node:14
     when:
       event: push
+    depends_on:
+      - setup
     commands:
+      - cd webapp
       - yarn run eslint 'src/**/*.{js,ts,tsx}' && yarn run prettier -c '**/*.+(js|jsx|json|css|md)'
 
