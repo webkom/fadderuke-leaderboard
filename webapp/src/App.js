@@ -1,23 +1,23 @@
-import React from "react";
-import "./App.css";
-import LeaderBoard from "./LeaderBoard";
+import React from 'react';
+import './App.css';
+import LeaderBoard from './LeaderBoard';
 
 class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      data: []
+      data: [],
     };
   }
 
   componentDidMount() {
     const fetchItem = async () => {
       //await fetch("http://127.0.0.1:8008")
-      await fetch("http://127.0.0.1:8080/function/spreadsheet-api")
-        .then(response => response.json())
-        .then(json =>
+      await fetch('http://127.0.0.1:8080/function/spreadsheet-api')
+        .then((response) => response.json())
+        .then((json) =>
           this.setState({
-            data: json.sort((a, b) => b.score - a.score)
+            data: json.sort((a, b) => b.score - a.score),
           })
         );
     };

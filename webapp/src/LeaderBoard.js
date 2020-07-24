@@ -1,7 +1,7 @@
-import React from "react";
-import "./App.css";
+import React from 'react';
+import './App.css';
 
-const LeaderBoard = props => {
+const LeaderBoard = (props) => {
   const data = props.data;
   return (
     <div className="LeaderBoard">
@@ -10,7 +10,7 @@ const LeaderBoard = props => {
           <div
             key={i}
             className={
-              i % 2 === 1 ? "listElement " : "listElement listElementDark"
+              i % 2 === 1 ? 'listElement ' : 'listElement listElementDark'
             }
           >
             <div className="rank">
