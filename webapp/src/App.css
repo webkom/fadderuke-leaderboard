@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Press+Start+2P");
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P');
 
 .header {
   background-color: #2f2c47;
@@ -10,10 +10,10 @@
   justify-content: center;
   font-size: 24px;
   color: white;
-  font-family: "Press Start 2P";
+  font-family: 'Press Start 2P';
 }
 
-.LeaderBoard{
+.LeaderBoard {
   text-align: center;
   display: flex;
   width: 100%;
@@ -56,7 +56,7 @@
 }
 
 body {
-  background: url("synthwave.jpg") no-repeat center center fixed;
+  background: url('synthwave.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
