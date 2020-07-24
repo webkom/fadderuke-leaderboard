@@ -19,5 +19,5 @@ steps:
       - setup
     commands:
       - cd webapp
-      - yarn run eslint 'src/**/*.{js,ts,tsx}' && yarn run prettier -c '**/*.+(js|jsx|json|css|md)'
+      - yarn run eslint . && yarn run prettier -c '**/*.+(js|jsx|json|css|md)'
 
