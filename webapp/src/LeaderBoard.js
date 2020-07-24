@@ -1,8 +1,9 @@
 import React from 'react';
 import './App.css';
 
-const LeaderBoard = (props) => {
+const LeaderBoard = props => {
   const data = props.data;
+
   return (
     <div className="LeaderBoard">
       {data.map((obj, i) => {
