@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 
-const LeaderBoard = props => {
+const LeaderBoard = (props) => {
   const data = props.data;
 
   return (
@@ -28,6 +29,10 @@ const LeaderBoard = props => {
       })}
     </div>
   );
+};
+
+LeaderBoard.propTypes = {
+  data: PropTypes.array,
 };
 
 export default LeaderBoard;
