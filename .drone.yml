@@ -20,5 +20,5 @@ steps:
     commands:
       - cd webapp
       - ls
-      - yarn run eslint . && yarn run prettier -c '**/*.+(js|jsx|json|css|md)'
+      - yarn lint && yarn run prettier -c '**/*.+(js|jsx|json|css|md)'
 
