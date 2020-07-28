@@ -9,7 +9,7 @@ steps:
     when:
       event: push
     commands:
-      - yarn --frozen-lockfile --ignore-scripts
+      - yarn
 
   - name: lint
     image: node:14
