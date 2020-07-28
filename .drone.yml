@@ -9,6 +9,7 @@ steps:
     when:
       event: push
     commands:
+      - cd webapp
       - yarn
 
   - name: lint
@@ -19,6 +20,5 @@ steps:
       - setup
     commands:
       - cd webapp
-      - ls
       - yarn lint && yarn run prettier -c '**/*.+(js|jsx|json|css|md)'
 
