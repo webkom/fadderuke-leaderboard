@@ -7,9 +7,9 @@ import (
 )
 
 func main() {
+	fmt.Print("Listening on :8008")
 	http.HandleFunc("/", handler)
 	http.ListenAndServe(":8008", nil)
-	fmt.Print("Listening on :8008")
 }
 
 func handler(w http.ResponseWriter, r *http.Request) {
