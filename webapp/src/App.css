@@ -5,9 +5,9 @@
   min-height: 10vh;
   width: 100%;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  text-align: center;
   font-size: 24px;
   color: white;
   font-family: 'Press Start 2P';
@@ -23,12 +23,24 @@
   background-color: white;
 }
 
+.navBar {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  height: 3em;
+  background-color: #2f2c47;
+  color: white;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
 .listElement {
   width: 100%;
   height: 60px;
   display: flex;
-  flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  align-content: center;
   font-size: 18px;
 }
 
@@ -40,18 +52,19 @@
   background-color: lightgrey;
 }
 
-.rank {
-  width: 10%;
+.boardRank {
+  margin-left: 1em;
   color: #2f2c47;
 }
 
-.name {
-  width: 75%;
+.boardName {
+  width: 25em;
   color: #2f2c47;
 }
 
-.score {
-  width: 15%;
+.boardScore {
+  width: 6em;
+  margin-right: 0.8em;
   color: #2f2c47;
 }
 
@@ -63,4 +76,16 @@ body {
 .container {
   width: 700px;
   margin: 80px auto;
+}
+@media (max-width: 750px) {
+  .container {
+    width: 100%;
+    margin: 0 0;
+  }
+  .listElement {
+    font-size: 14px;
+  }
+  .header {
+    font-size: 20px;
+  }
 }

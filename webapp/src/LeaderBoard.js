@@ -15,13 +15,15 @@ const LeaderBoard = (props) => {
               i % 2 === 1 ? 'listElement ' : 'listElement listElementDark'
             }
           >
-            <div className="rank">
+            <div className="boardRank">
               <p>{i + 1}</p>
             </div>
-            <div className="name">
-              <p>{obj.name}</p>
+            <div className="boardName">
+              <p>
+                {obj.name}, {obj.class}
+              </p>
             </div>
-            <div className="score">
+            <div className="boardScore">
               <p>{obj.score}</p>
             </div>
           </div>
