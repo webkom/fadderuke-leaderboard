@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './App.css';
+import { Link } from 'react-router-dom';
 
 const LeaderBoard = (props) => {
   const data = props.data;
@@ -9,7 +10,8 @@ const LeaderBoard = (props) => {
     <div className="LeaderBoard">
       {data.map((obj, i) => {
         return (
-          <div
+          <Link
+            to={`/user/${obj.name}`}
             key={i}
             className={
               i % 2 === 1 ? 'listElement ' : 'listElement listElementDark'
@@ -26,7 +28,7 @@ const LeaderBoard = (props) => {
             <div className="boardScore">
               <p>{obj.scoreSum}</p>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>

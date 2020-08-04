@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import LeaderBoard from './LeaderBoard';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import Nav from './Nav';
 
 class App extends React.Component {
   constructor() {
@@ -29,14 +31,23 @@ class App extends React.Component {
     const { data } = this.state;
 
     return (
-      <div className="container">
-        <div className="header">
-          <p>Abakus fadderuke scoreboard</p>
+      <Router>
+        <div className="container">
+          <Nav />
+          <Switch>
+            <Route
+              path="/"
+              exact
+              component={() => <LeaderBoard data={data} />}
+            />
+            <Route path="/user/:name" component={User} />
+          </Switch>
         </div>
-        <LeaderBoard data={data} />
-      </div>
+      </Router>
     );
   }
 }
+
+const User = ({ match }) => <div>{match.params.name}</div>;
 
 export default App;
