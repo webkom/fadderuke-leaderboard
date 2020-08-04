@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
-	"strconv"
 	"strings"
 
 	"golang.org/x/net/context"
@@ -25,7 +24,7 @@ func getAPISecret(secretName string) (secretBytes []byte, err error) {
 }
 
 //get data from google spreadsheet document using google sheets api
-func getData() ([][]interface{}, error) {
+func getData(sheetRange string) ([][]interface{}, error) {
 	data, err := getAPISecret("google-sheets-credentials")
 	if err != nil {
 		// read from local file for running local server
@@ -45,28 +44,35 @@ func getData() ([][]interface{}, error) {
 		return nil, err
 	}
 
+	ctx := context.Background()
 	spreadsheetID := "1zquxtdTRSmOR8HZr1odgbUMtz8-LaPi_kpCKqrO5ATI"
-	readRange := "A2:C"
-	resp, err := srv.Spreadsheets.Values.Get(spreadsheetID, readRange).Do()
+	readRange := sheetRange
+	resp, err := srv.Spreadsheets.Values.Get(spreadsheetID, readRange).ValueRenderOption("UNFORMATTED_VALUE").Context(ctx).Do()
 	if len(resp.Values) == 0 {
 		return nil, err
-	} else {
-		return resp.Values, err
 	}
+	return resp.Values, err
 }
 
-// struct for json response
+// Group struct for json response
 type Group struct {
-	Name  string `json:"name"`
-	Score int    `json:"score"`
-	Class string `json:"class"`
+	Name             string      `json:"name"`
+	Score            float64     `json:"score"`
+	Class            string      `json:"class"`
+	ScoreByChallenge []Challenge `json:"scoreByChallenge"`
+}
+
+// Challenge struct for individual challenge
+type Challenge struct {
+	Name  string  `json:"name"`
+	Score float64 `json:"score"`
 }
 
 // Handle a function invocation
 func Handle(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
 
-		data, err := getData()
+		data, err := getData("A2:H")
 		if err != nil {
 			http.Error(w, fmt.Sprintf("Failed to get data from spreadsheet: %s",
 				err.Error()), http.StatusInternalServerError)
@@ -74,18 +80,28 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 		}
 
 		scoreList := []Group{}
+		challengeList := []string{}
 		// creates a Group object for each entry in the sheet document
-		for _, row := range data {
+		for i, row := range data {
 			group := Group{}
-			group.Name = row[0].(string)
-			group.Score, err = strconv.Atoi(row[1].(string))
-			group.Class = strings.ToUpper(row[2].(string))
-			if err != nil {
-				http.Error(w, fmt.Sprintf("Failed to strconv: %s", err.Error()),
-					http.StatusInternalServerError)
-				return
+			// creates an array with the names of all the 4 challenges
+			// TODO make this dynamic
+			if i == 0 {
+				challengeList = append(challengeList, row[4].(string))
+				challengeList = append(challengeList, row[5].(string))
+				challengeList = append(challengeList, row[6].(string))
+				challengeList = append(challengeList, row[7].(string))
+			} else {
+				group.Name = row[0].(string)
+				group.Score = row[1].(float64)
+				group.Class = strings.ToUpper(row[2].(string))
+				// appends each challenge and associated score to the group
+				for j, c := range challengeList {
+					tmpScore := row[4+j].(float64)
+					group.ScoreByChallenge = append(group.ScoreByChallenge, Challenge{c, tmpScore})
+				}
+				scoreList = append(scoreList, group)
 			}
-			scoreList = append(scoreList, group)
 		}
 
 		out, err := json.Marshal(scoreList)
