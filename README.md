@@ -28,7 +28,7 @@ Neptune #76A6B4
 - [x] Add better error handling
 - [x] Add better docs.
 - [x] Redo desgin
-- [ ] Setup CI
+- [x] Setup CI
 - [ ] Add redux
 
 ## TODO features
