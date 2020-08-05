@@ -3,12 +3,12 @@ import PropTypes from 'prop-types';
 import './App.css';
 import { Link } from 'react-router-dom';
 
-const LeaderBoard = (props) => {
+function LeaderBoard(props) {
   const data = props.data;
 
   return (
     <div className="LeaderBoard">
-      {data.map((obj, i) => {
+      {data.map((group, i) => {
         return (
           <Link
             to={`/user/${i}`}
@@ -21,19 +21,17 @@ const LeaderBoard = (props) => {
               <p>{i + 1}</p>
             </div>
             <div className="boardName">
-              <p>
-                {obj.name}, {obj.class}
-              </p>
+              <p>{group.name}</p>
             </div>
             <div className="boardScore">
-              <p>{obj.scoreSum}</p>
+              <p>{group.scoreSum}</p>
             </div>
           </Link>
         );
       })}
     </div>
   );
-};
+}
 
 LeaderBoard.propTypes = {
   data: PropTypes.array,
