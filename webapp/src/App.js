@@ -9,6 +9,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
+      loading: true,
       data: [],
     };
   }
@@ -21,6 +22,7 @@ class App extends React.Component {
         .then((json) =>
           this.setState({
             data: json.sort((a, b) => b.score - a.score),
+            loading: false,
           })
         );
     };
@@ -35,7 +37,11 @@ class App extends React.Component {
       <Router>
         <div className="container">
           <Nav />
-          {data ? (
+          {this.state.loading ? (
+            <div className="loading">
+              <h2>Laster...</h2>
+            </div>
+          ) : (
             <Switch>
               <Route
                 path="/"
@@ -49,10 +55,6 @@ class App extends React.Component {
                 )}
               />
             </Switch>
-          ) : (
-            <div>
-              <h1>Laster...</h1>
-            </div>
           )}
         </div>
       </Router>
