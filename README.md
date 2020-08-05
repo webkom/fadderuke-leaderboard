@@ -29,11 +29,11 @@ Neptune #76A6B4
 - [x] Add better docs.
 - [x] Redo desgin
 - [x] Setup CI
-- [ ] Add redux
+- [ ] <s>Add redux</s>
 
 ## TODO features
 
-- [ ] Click on indvidual groups to see score on different tasks
+- [x] Click on indvidual groups to see score on different tasks
 - [ ] Progressive Web App (serviceworker)
 - [ ] Sort on DATA, KOMTEK or ALL
-- [ ] Add link to fadderuke-program
+- [x] Add link to fadderuke-program
