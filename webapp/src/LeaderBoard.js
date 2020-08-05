@@ -11,7 +11,7 @@ const LeaderBoard = (props) => {
       {data.map((obj, i) => {
         return (
           <Link
-            to={`/user/${obj.name}`}
+            to={`/user/${i}`}
             key={i}
             className={
               i % 2 === 1 ? 'listElement ' : 'listElement listElementDark'
