@@ -59,6 +59,7 @@ type Group struct {
 	Name             string      `json:"name"`
 	ScoreSum         float64     `json:"scoreSum"`
 	Class            string      `json:"class"`
+	Image            string      `json:"image"`
 	ScoreByChallenge []Challenge `json:"scoreByChallenge"`
 }
 
@@ -98,6 +99,7 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 					score = 0
 				}
 				group.ScoreSum = score
+				group.Image = row[2].(string)
 				group.Class = strings.ToUpper(row[1].(string))
 				// appends each challenge and associated score to the group
 				for j, c := range challengeList {
