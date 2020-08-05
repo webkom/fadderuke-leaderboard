@@ -58,7 +58,8 @@ func getData(sheetRange string) ([][]interface{}, error) {
 type Group struct {
 	Name             string      `json:"name"`
 	ScoreSum         float64     `json:"scoreSum"`
-	Class            string      `json:"class"`
+	Major            string      `json:"major"`
+	Image            string      `json:"image"`
 	ScoreByChallenge []Challenge `json:"scoreByChallenge"`
 }
 
@@ -93,16 +94,17 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 				challengeList = append(challengeList, row[6].(string))
 			} else {
 				group.Name = row[0].(string)
-				score, err := row[7].(float64)
-				if err == true {
+				score, t := row[7].(float64)
+				if t == false {
 					score = 0
 				}
 				group.ScoreSum = score
-				group.Class = strings.ToUpper(row[1].(string))
+				group.Image = row[2].(string)
+				group.Major = strings.ToUpper(row[1].(string))
 				// appends each challenge and associated score to the group
 				for j, c := range challengeList {
-					tmpScore, err := row[3+j].(float64)
-					if err == true {
+					tmpScore, t := row[3+j].(float64)
+					if t == false {
 						tmpScore = 0
 					}
 					group.ScoreByChallenge = append(group.ScoreByChallenge, Challenge{c, tmpScore})
