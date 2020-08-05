@@ -46,7 +46,7 @@ a:hover {
   background-color: white;
 }
 .groupImage {
-  width: 60%;
+  width: 80%;
   margin: 20px auto;
 }
 .navBar {
@@ -90,8 +90,8 @@ a:hover {
 }
 
 .boardScore {
-  width: 6em;
-  margin-right: 0.8em;
+  width: 2em;
+  margin-right: 1.5em;
   color: #2f2c47;
 }
 
