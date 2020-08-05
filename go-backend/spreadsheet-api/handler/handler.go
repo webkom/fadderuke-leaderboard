@@ -57,7 +57,7 @@ func getData(sheetRange string) ([][]interface{}, error) {
 // Group struct for json response
 type Group struct {
 	Name             string      `json:"name"`
-	Score            float64     `json:"score"`
+	ScoreSum         float64     `json:"scoreSum"`
 	Class            string      `json:"class"`
 	ScoreByChallenge []Challenge `json:"scoreByChallenge"`
 }
@@ -72,7 +72,7 @@ type Challenge struct {
 func Handle(w http.ResponseWriter, r *http.Request) {
 	if r.Method == http.MethodGet {
 
-		data, err := getData("A2:H")
+		data, err := getData("A2:I")
 		if err != nil {
 			http.Error(w, fmt.Sprintf("Failed to get data from spreadsheet: %s",
 				err.Error()), http.StatusInternalServerError)
@@ -87,17 +87,24 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 			// creates an array with the names of all the 4 challenges
 			// TODO make this dynamic
 			if i == 0 {
+				challengeList = append(challengeList, row[3].(string))
 				challengeList = append(challengeList, row[4].(string))
 				challengeList = append(challengeList, row[5].(string))
 				challengeList = append(challengeList, row[6].(string))
-				challengeList = append(challengeList, row[7].(string))
 			} else {
 				group.Name = row[0].(string)
-				group.Score = row[1].(float64)
-				group.Class = strings.ToUpper(row[2].(string))
+				score, err := row[7].(float64)
+				if err == true {
+					score = 0
+				}
+				group.ScoreSum = score
+				group.Class = strings.ToUpper(row[1].(string))
 				// appends each challenge and associated score to the group
 				for j, c := range challengeList {
-					tmpScore := row[4+j].(float64)
+					tmpScore, err := row[3+j].(float64)
+					if err == true {
+						tmpScore = 0
+					}
 					group.ScoreByChallenge = append(group.ScoreByChallenge, Challenge{c, tmpScore})
 				}
 				scoreList = append(scoreList, group)

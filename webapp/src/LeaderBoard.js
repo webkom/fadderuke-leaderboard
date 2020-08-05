@@ -24,7 +24,7 @@ const LeaderBoard = (props) => {
               </p>
             </div>
             <div className="boardScore">
-              <p>{obj.score}</p>
+              <p>{obj.scoreSum}</p>
             </div>
           </div>
         );
