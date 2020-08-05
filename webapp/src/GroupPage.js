@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './App.css';
 
 const GroupPage = ({ group }) => {
@@ -25,6 +26,10 @@ const GroupPage = ({ group }) => {
       )}
     </div>
   );
+};
+
+GroupPage.propTypes = {
+  group: PropTypes.object,
 };
 
 export default GroupPage;
