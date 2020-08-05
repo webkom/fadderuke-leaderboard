@@ -54,6 +54,11 @@ func getData(sheetRange string) ([][]interface{}, error) {
 	return resp.Values, err
 }
 
+// Data struct
+type Data struct {
+	Data []Group `json:"data"`
+}
+
 // Group struct for json response
 type Group struct {
 	Name             string      `json:"name"`
@@ -80,7 +85,7 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 			return
 		}
 
-		scoreList := []Group{}
+		response := Data{}
 		challengeList := []string{}
 		// creates a Group object for each entry in the sheet document
 		for i, row := range data {
@@ -109,11 +114,11 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 					}
 					group.ScoreByChallenge = append(group.ScoreByChallenge, Challenge{c, tmpScore})
 				}
-				scoreList = append(scoreList, group)
+				response.Data = append(response.Data, group)
 			}
 		}
 
-		out, err := json.Marshal(scoreList)
+		out, err := json.Marshal(response)
 		if err != nil {
 			http.Error(w, fmt.Sprintf("Failed to marshal: %s", err.Error()),
 				http.StatusInternalServerError)

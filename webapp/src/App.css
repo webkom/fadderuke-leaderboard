@@ -43,7 +43,9 @@ a:hover {
   display: flex;
   width: 100%;
   justify-content: center;
+  text-align: center;
   background-color: #f5f4f4;
+  flex-direction: column;
 }
 .groupImage {
   width: 80%;
