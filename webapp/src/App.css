@@ -49,8 +49,8 @@ a:hover {
   flex-direction: column;
 }
 .groupImage {
-  min-width: 85%;
-  max-width: 90%;
+  min-width: 75%;
+  max-width: 80%;
   margin: 20px auto;
 }
 .groupName {

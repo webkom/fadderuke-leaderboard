@@ -18,7 +18,7 @@ const Nav = () => {
           LEADERBOARD
         </p>
         <p>
-          Mer om fadderuken&nbsp;
+          Mer om fadderperioden&nbsp;
           <a
             target="blank"
             rel="noreferrer noopener"

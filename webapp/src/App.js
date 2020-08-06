@@ -39,7 +39,7 @@ const App = () => (
           </Router>
         );
       if (data) {
-        const responseData = data.data.sort((a, b) => b.scoreSum - a.scoreSum);
+        const responseData = data.data;
         return (
           <Router>
             <div className="container">

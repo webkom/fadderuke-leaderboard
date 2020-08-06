@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"net/http"
+	"sort"
 	"strings"
 
 	"golang.org/x/net/context"
@@ -117,6 +118,14 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 				response.Data = append(response.Data, group)
 			}
 		}
+
+		// sort data by the highest scores
+		sort.SliceStable(response.Data, func(i, j int) bool {
+			return response.Data[i].ScoreSum > response.Data[j].ScoreSum
+		})
+
+		// get the 3/5 best sumScores
+		response.Data = response.Data[0 : (len(response.Data)/5)*3]
 
 		out, err := json.Marshal(response)
 		if err != nil {

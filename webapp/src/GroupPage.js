@@ -12,10 +12,14 @@ function GroupPage(props) {
           <h3>Linje: {group.major === 'K' ? 'komtek' : 'data'}</h3>
           <img
             className="groupImage"
-            src={group.image ? group.image : 'https://i.imgur.com/NquUygt.jpg'}
+            src={
+              group.image
+                ? group.image
+                : `${process.env.PUBLIC_URL}/images/abakule.png`
+            }
             alt="gruppebilde"
           ></img>
-          {group.scoreByChallenge.map((c, i) => {
+          {group.scoreByChallenge.map((c) => {
             return (
               <div key={c.name}>
                 <p>
