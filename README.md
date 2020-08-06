@@ -7,6 +7,7 @@ This project uses [React](https://github.com/facebook/react) as frontend. The ba
 ## Screenshot:
 
 ![](sc_page.png)
+![](sc_group.png)
 
 ## Colors:
 
