@@ -34,6 +34,6 @@ Neptune #76A6B4
 ## TODO features
 
 - [x] Click on indvidual groups to see score on different tasks
-- [ ] Progressive Web App (serviceworker)
+- [ ] <s>Progressive Web App (serviceworker)</s>
 - [x] Sort on DATA, KOMTEK or ALL
 - [x] Add link to fadderuke-program
