@@ -51,9 +51,31 @@ const App = () => (
                   component={() => <LeaderBoard data={responseData} />}
                 />
                 <Route
-                  path="/user/:id"
+                  path="/data"
+                  exact
+                  component={() => (
+                    <LeaderBoard
+                      data={responseData.filter((g) => g.major !== 'K')}
+                    />
+                  )}
+                />
+                <Route
+                  path="/komtek"
+                  exact
+                  component={() => (
+                    <LeaderBoard
+                      data={responseData.filter((g) => g.major === 'K')}
+                    />
+                  )}
+                />
+                <Route
+                  path="/group/:name"
                   render={({ match }) => (
-                    <GroupPage group={responseData[match.params.id]} />
+                    <GroupPage
+                      group={responseData.find(
+                        (g) => g.name === match.params.name
+                      )}
+                    />
                   )}
                 />
               </Switch>

@@ -10,7 +10,11 @@ function GroupPage(props) {
         <div>
           <h2>{group.name}</h2>
           <h3>Linje: {group.major === 'K' ? 'komtek' : 'data'}</h3>
-          <img className="groupImage" src={group.image} alt="gruppebilde"></img>
+          <img
+            className="groupImage"
+            src={group.image ? group.image : 'https://i.imgur.com/NquUygt.jpg'}
+            alt="gruppebilde"
+          ></img>
           {group.scoreByChallenge.map((c, i) => {
             return (
               <div key={c.name}>

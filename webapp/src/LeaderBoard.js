@@ -11,7 +11,7 @@ function LeaderBoard(props) {
       {data.map((group, i) => {
         return (
           <Link
-            to={`/user/${i}`}
+            to={`/group/${group.name}`}
             key={i}
             className={
               i % 2 === 1 ? 'listElement ' : 'listElement listElementDark'
