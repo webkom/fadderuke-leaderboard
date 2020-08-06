@@ -8,7 +8,7 @@ function GroupPage(props) {
     <div className="GroupPage">
       {group ? (
         <div>
-          <h2>{group.name}</h2>
+          <h2 className="groupName">{group.name}</h2>
           <h3>Linje: {group.major === 'K' ? 'komtek' : 'data'}</h3>
           <img
             className="groupImage"

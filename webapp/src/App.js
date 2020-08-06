@@ -7,7 +7,7 @@ import GroupPage from './GroupPage';
 import Async from 'react-async';
 
 const fetchData = () =>
-  fetch('http://127.0.0.1:8080/function/spreadsheet-api')
+  fetch('http://10.70.51.145:8080/function/spreadsheet-api')
     //fetch('http://127.0.0.1:8008')
     .then((res) => (res.ok ? res : Promise.reject(res)))
     .then((res) => res.json());

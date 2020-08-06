@@ -53,6 +53,9 @@ a:hover {
   max-width: 90%;
   margin: 20px auto;
 }
+.groupName {
+  margin: 1em;
+}
 .navBar {
   text-align: center;
   display: flex;
@@ -148,6 +151,9 @@ a:hover {
     font-size: 20px;
   }
   .sortBar {
+    font-size: 14px;
+  }
+  .GroupPage {
     font-size: 14px;
   }
 }
