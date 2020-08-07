@@ -46,7 +46,7 @@ func getData(sheetRange string) ([][]interface{}, error) {
 	}
 
 	ctx := context.Background()
-	spreadsheetID := "1zquxtdTRSmOR8HZr1odgbUMtz8-LaPi_kpCKqrO5ATI"
+	spreadsheetID := "16ZcndQ8TIFFu-9q-0oMuFYUybfRqOPR3W28ye_lEAkk"
 	readRange := sheetRange
 	resp, err := srv.Spreadsheets.Values.Get(spreadsheetID, readRange).ValueRenderOption("UNFORMATTED_VALUE").Context(ctx).Do()
 	if len(resp.Values) == 0 {
@@ -83,7 +83,6 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			http.Error(w, fmt.Sprintf("Failed to get data from spreadsheet: %s",
 				err.Error()), http.StatusInternalServerError)
-			return
 		}
 
 		response := Data{}
@@ -131,7 +130,6 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			http.Error(w, fmt.Sprintf("Failed to marshal: %s", err.Error()),
 				http.StatusInternalServerError)
-			return
 		}
 
 		w.Header().Set("Content-Type", "application/json")

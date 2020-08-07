@@ -3,10 +3,10 @@ provider:
   name: openfaas
   gateway: http://127.0.0.1:8080
 functions:
-  spreadsheet-api:
+  fadderuke-api:
     lang: golang-middleware
     handler: ./spreadsheet-api/handler/
-    image: spreadsheet-api:latest
+    image: registry.webkom.dev/webkom/fadderuke-leaderboard:latest
     secrets:
       - google-sheets-credentials
     build_args:

@@ -14,6 +14,13 @@ Currently this is a private repo with the secrets available. This MUST be change
 
 Firstly setup openfaas with docker swarm. Follow steps 1-2.1 in this [GUIDE](https://docs.openfaas.com/deployment/docker-swarm/).
 
+Pull golang-http template:
+
+
+```bash
+faas-cli template store pull golang-http
+```
+
 You need to create a docker secret with the secrets.json:
 
 ```bash

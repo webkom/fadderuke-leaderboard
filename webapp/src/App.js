@@ -7,10 +7,9 @@ import GroupPage from './GroupPage';
 import Async from 'react-async';
 
 const fetchData = () =>
-  fetch('http://10.70.51.145:8080/function/spreadsheet-api')
-    //fetch('http://127.0.0.1:8008')
-    .then((res) => (res.ok ? res : Promise.reject(res)))
-    .then((res) => res.json());
+  fetch('https://openfaas.abakus.no/function/fadderuke-api')
+    .then(res => (res.ok ? res : Promise.reject(res)))
+    .then(res => res.json());
 
 const App = () => (
   <Async promiseFn={fetchData}>
@@ -55,7 +54,7 @@ const App = () => (
                   exact
                   component={() => (
                     <LeaderBoard
-                      data={responseData.filter((g) => g.major !== 'K')}
+                      data={responseData.filter(g => g.major !== 'K')}
                     />
                   )}
                 />
@@ -64,7 +63,7 @@ const App = () => (
                   exact
                   component={() => (
                     <LeaderBoard
-                      data={responseData.filter((g) => g.major === 'K')}
+                      data={responseData.filter(g => g.major === 'K')}
                     />
                   )}
                 />
@@ -73,7 +72,7 @@ const App = () => (
                   render={({ match }) => (
                     <GroupPage
                       group={responseData.find(
-                        (g) => g.name === match.params.name
+                        g => g.name === match.params.name
                       )}
                     />
                   )}
