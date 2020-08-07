@@ -7,7 +7,7 @@ import GroupPage from './GroupPage';
 import Async from 'react-async';
 
 const fetchData = () =>
-  fetch('https://openfaas.abakus.no/function/fadderuke-api')
+  fetch('https://openfaas.abakus.no/function/fadderuke_toppliste')
     .then(res => (res.ok ? res : Promise.reject(res)))
     .then(res => res.json());
 
