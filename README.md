@@ -1,4 +1,5 @@
-# (WIP) Fadderuke leaderboard
+[![Build Status](https://ci.webkom.dev/api/badges/webkom/fadderuke-leaderboard/status.svg)](https://ci.webkom.dev/webkom/fadderuke-leaderboard)
+# Fadderuke leaderboard
 
 Docs on how to setup backend is located in **go-backend** folder, and frontend is located in **webapp** folder.
 
