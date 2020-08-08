@@ -7,6 +7,12 @@ body {
 a:hover {
   color: #b03013;
 }
+a {
+  color: #c0392b;
+  display: inline-block;
+  line-height: 2em;
+  transition: transform 0.1s linear;
+}
 .Nav {
   background-color: #2f2c47;
   min-height: 10vh;
@@ -18,7 +24,18 @@ a:hover {
   text-align: center;
   font-size: 24px;
   color: #f5f4f4;
-  font-family: 'Press Start 2P';
+}
+.Footer {
+  background-color: #2f2c47;
+  min-height: 5vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: 14px;
+  color: #f5f4f4;
 }
 .LeaderBoard {
   text-align: center;
@@ -90,12 +107,6 @@ a:hover {
 .sortElement:hover {
   background-color: #c8786f;
   color: white;
-}
-.fadderukeLink {
-  color: #c0392b;
-  display: inline-block;
-  line-height: 2em;
-  transition: transform 0.1s linear;
 }
 .leaderboardTitle {
   text-decoration: none;

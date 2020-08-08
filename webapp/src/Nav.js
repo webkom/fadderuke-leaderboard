@@ -11,19 +11,17 @@ const Nav = () => {
             target="blank"
             rel="noreferrer noopener"
             href="https://abakus.no/"
-            className="fadderukeLink"
           >
             ABAKUS
           </a>{' '}
           LEADERBOARD
         </p>
         <p>
-          Mer om fadderperioden&nbsp;
+          Mer om fadderperioden{' '}
           <a
             target="blank"
             rel="noreferrer noopener"
             href="https://abakus.no/articles/283"
-            className="fadderukeLink"
           >
             <b>her</b>
           </a>

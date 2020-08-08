@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Nav from './Nav';
 import GroupPage from './GroupPage';
 import Async from 'react-async';
+import Footer from './Footer';
 
 const fetchData = () =>
   fetch('https://openfaas.abakus.no/function/fadderuke_toppliste')
@@ -22,6 +23,7 @@ const App = () => (
               <div className="loading">
                 <h2>Laster...</h2>
               </div>
+              <Footer />
             </div>
           </Router>
         );
@@ -34,6 +36,7 @@ const App = () => (
                 <h2>Noe gikk feil: ${error.message}</h2>
                 <p>Webkom er på saken</p>
               </div>
+              <Footer />
             </div>
           </Router>
         );
@@ -78,6 +81,7 @@ const App = () => (
                   )}
                 />
               </Switch>
+              <Footer />
             </div>
           </Router>
         );
