@@ -5,7 +5,7 @@ provider:
 functions:
   fadderuke-api:
     lang: golang-middleware
-    handler: ./spreadsheet-api/handler/
+    handler: ./fadderuke-api/handler/
     image: registry.webkom.dev/webkom/fadderuke-leaderboard:latest
     secrets:
       - google-sheets-credentials

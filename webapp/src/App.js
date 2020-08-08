@@ -8,9 +8,9 @@ import Async from 'react-async';
 import Footer from './Footer';
 
 const fetchData = () =>
-  fetch('https://openfaas.abakus.no/function/fadderuke_toppliste')
-    .then(res => (res.ok ? res : Promise.reject(res)))
-    .then(res => res.json());
+  fetch(process.env.REACT_APP_API_URL)
+    .then((res) => (res.ok ? res : Promise.reject(res)))
+    .then((res) => res.json());
 
 const App = () => (
   <Async promiseFn={fetchData}>
@@ -57,7 +57,7 @@ const App = () => (
                   exact
                   component={() => (
                     <LeaderBoard
-                      data={responseData.filter(g => g.major !== 'K')}
+                      data={responseData.filter((g) => g.major !== 'K')}
                     />
                   )}
                 />
@@ -66,7 +66,7 @@ const App = () => (
                   exact
                   component={() => (
                     <LeaderBoard
-                      data={responseData.filter(g => g.major === 'K')}
+                      data={responseData.filter((g) => g.major === 'K')}
                     />
                   )}
                 />
@@ -75,7 +75,7 @@ const App = () => (
                   render={({ match }) => (
                     <GroupPage
                       group={responseData.find(
-                        g => g.name === match.params.name
+                        (g) => g.name === match.params.name
                       )}
                     />
                   )}

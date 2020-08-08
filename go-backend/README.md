@@ -3,25 +3,23 @@
 ## Running locally
 
 Run a local server at http:localhost:8008
+( You will need to have a secrets.json file for google sheets API credentials in the go-backend folder. And change the spreadsheetID var in the getData func to correct ID for your sheet )
 
 ```bash
-go run spreadsheet-api/server/main.go
+cd fadderuke-api/server && go run main.go
 ```
 
-## Running with OpenFaaS 
-
-Currently this is a private repo with the secrets available. This MUST be changed when the repo goes public.
+## Running with OpenFaaS
 
 Firstly setup openfaas with docker swarm. Follow steps 1-2.1 in this [GUIDE](https://docs.openfaas.com/deployment/docker-swarm/).
 
 Pull golang-http template:
 
-
 ```bash
 faas-cli template store pull golang-http
 ```
 
-You need to create a docker secret with the secrets.json:
+You need to create a docker secret with the secrets.json for google sheets API:
 
 ```bash
 docker secret create google-sheets-credentials \

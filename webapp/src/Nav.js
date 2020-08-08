@@ -7,11 +7,7 @@ const Nav = () => {
     <div className="Nav">
       <div className="leaderboardTitle">
         <p>
-          <a
-            target="blank"
-            rel="noreferrer noopener"
-            href="https://abakus.no/"
-          >
+          <a target="blank" rel="noreferrer noopener" href="https://abakus.no/">
             ABAKUS
           </a>{' '}
           LEADERBOARD

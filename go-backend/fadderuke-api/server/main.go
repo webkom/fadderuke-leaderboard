@@ -1,9 +1,9 @@
 package main
 
 import (
+	SpreadsheetHandler "fadderuke-api/fadderuke-api/handler"
 	"fmt"
 	"net/http"
-	SpreadsheetHandler "spreadsheet-api/spreadsheet-api/handler"
 )
 
 func main() {
