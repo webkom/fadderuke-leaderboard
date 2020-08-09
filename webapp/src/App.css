@@ -140,8 +140,9 @@ a {
 }
 .boardScore {
   width: 2em;
-  margin-right: 1.5em;
+  margin-right: 3em;
   color: #2f2c47;
+  text-align: center;
 }
 .container {
   width: 700px;
