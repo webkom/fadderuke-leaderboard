@@ -134,7 +134,7 @@ func Handle(w http.ResponseWriter, r *http.Request) {
 
 		w.Header().Set("Content-Type", "application/json")
 		w.Header().Set("Access-Control-Allow-Methods", "GET")
-		w.Header().Set("Access-Control-Allow-Origin", "*")
+		w.Header().Set("Access-Control-Allow-Origin", "https://fadderuke.abakus.no")
 		w.Write(out)
 	} else {
 		http.Error(w, fmt.Sprintf("Only allowed action is GET"),
